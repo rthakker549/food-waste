@@ -18,7 +18,7 @@ class Metrics extends React.Component {
                 <Container className="LoginContainer">
                     <Row>
                         <Col sm={{ size: 8, order: 2, offset: 2}}>
-                            <MetricCar transactions="69" weight="69" people="69" />
+                            <MetricCar transactions="3" weight="75" people="90" />
                             <Calendar
                                 calendarType="US"
                                 onChange={this.onChange}
