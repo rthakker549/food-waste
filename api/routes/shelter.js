@@ -4,6 +4,7 @@ let bc = require('badcube');
 
 module.exports = router;
 
+// Fulfillment Logic
 router.post('/', function(req, res){
   let location = req.body.location;
   let name = req.body.name;
@@ -25,4 +26,21 @@ router.post('/', function(req, res){
 
   res.send("Shelter created")
 })
+
+// Update shelter info
+router.put('/update', function(req, res){
+  let _id = req.body._id;
+  let location = req.body.location;
+  let name = req.body.name;
+  let phoneNumber = req.body.phoneNumber;
+  let email = req.body.email;
+  let demographics = Object(req.body.demographics);
+
+  bc.Shelters.update({_id : _id},{location : location, name : name, 
+    phoneNumber : phoneNumber, email : email, demographics : demographics});
+  shelter = bc.Shelters.find({_id : _id});
+  res.send(shelter);
+})
+
+// Metrics Logic
 

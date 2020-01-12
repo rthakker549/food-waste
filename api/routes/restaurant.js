@@ -89,6 +89,7 @@ function getDistancesBetweenRestaurantAndShelters(restaurant, allShelters){
 
 // Routing
 
+// Add new restaurant
 router.post('/', function(req, res){
   let location = req.body.location;
   let name = req.body.name;
@@ -116,4 +117,17 @@ router.post('/distances', function(req, res){
     res.send(getDistancesBetweenRestaurantAndShelters(restaurant, shelters));
 })
 
+// Update restaurant
+router.put('/update', function(req, res){
+    let _id = req.body._id;
+    let location = req.body.location;
+    let name = req.body.name;
+    let phoneNumber = req.body.phoneNumber;
+    let email = req.body.email;
+  
+    bc.Restaurants.update({_id : _id},{location : location, name : name, 
+      phoneNumber : phoneNumber, email : email});
+    restaurant = bc.Restaurants.find({_id : _id});
+    res.send(restaurant);
+})
 module.exports = router;
