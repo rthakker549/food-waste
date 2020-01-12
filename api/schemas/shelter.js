@@ -4,7 +4,7 @@ module.exports = {
     name : String,
     phoneNumber : String,
     email : String,
-    foodServed : Array,
+    foodServed : Array, 
     demographics : Object,
     transactionHistory : Array
 }
