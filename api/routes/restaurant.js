@@ -71,7 +71,10 @@ function AverageDonationsAllTime(restaurant){
 
 // Add new restaurant
 router.post('/', function(req, res){
-  let location = req.body.location;
+  let address = req.body.address;
+  let zipCode = req.body.zipCode;
+  let state = req.body.state;
+  let city = req.body.city;
   let name = req.body.name;
   let foodExcess = req.body.foodExcess;
   let transactionHistory = req.body.transactionHistory;
@@ -79,7 +82,10 @@ router.post('/', function(req, res){
   let email = req.body.email;
 
   bc.Restaurants.insert({
-      location: location,
+      address: address,
+      zipCode: zipCode,
+      state: state,
+      city : city,
       name: name,
       foodExcess: Array(foodExcess),
       transactionHistory: Array(transactionHistory),
@@ -93,13 +99,16 @@ router.post('/', function(req, res){
 // Update restaurant
 router.put('/update', function(req, res){
     let _id = req.body._id;
-    let location = req.body.location;
+    let address = req.body.address;
+    let zipCode = req.body.zipCode;
+    let state = req.body.state;
+    let city = req.body.city;
     let name = req.body.name;
     let phoneNumber = req.body.phoneNumber;
     let email = req.body.email;
   
-    bc.Restaurants.update({_id : _id},{location : location, name : name, 
-      phoneNumber : phoneNumber, email : email});
+    bc.Restaurants.update({_id : _id},{name : name, 
+      phoneNumber : phoneNumber, email : email, address : address, zipCode : zipCode, state : state, city : city});
     restaurant = bc.Restaurants.find({_id : _id});
     res.send(restaurant);
 })
