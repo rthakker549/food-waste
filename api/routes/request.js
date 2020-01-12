@@ -37,4 +37,8 @@ router.delete('/deleteRequest', function(req, res){
     res.send("Request update completed")
 })
 
+router.get('/getAll', function(req, res){
+  
+})
+
 module.exports = router;
