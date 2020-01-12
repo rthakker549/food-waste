@@ -1,4 +1,7 @@
-let bc = require('badcube');
+var express = require('express');
+var router = express.Router();
+let bc = require('badcube')
+
 const googleMapsClient = require('@google/maps').createClient({
     key: 'AIzaSyAsOwjMvnngb1TYDM8W0aqxFZYNdkM7tH8',
     Promise: Promise
@@ -152,3 +155,17 @@ function ProcessTransaction(Request, Offer){
         return false;
     }
 }
+
+router.post('/process', function(req, res){
+    let restId = req.body.restId;
+    let shelterId = req.body.shelterId;
+
+    let restaurant = bc.Restaurants.find({_id: restId});
+    let shelter = bc.Shelters.find({_id: shelterId});
+
+    let offer = bc.Offers.find({restaurantId: restaurant._id});
+    let request = bc.Requests.find({shelterId: shelter._id});
+
+    let result = ProcessTransaction(request, offer);
+    res.send(result);
+  });

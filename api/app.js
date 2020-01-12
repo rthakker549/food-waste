@@ -11,6 +11,7 @@ var restaurantRouter = require('./routes/restaurant');
 var shelterRouter = require('./routes/shelter');
 var offerRouter = require('./routes/offer');
 var requestRouter = require('./routes/request');
+var matchingRouter = require('./routes/MatchingUtility');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use('/shelter', shelterRouter);
 app.use('/users', usersRouter);
 app.use('/offer', offerRouter);
 app.use('/request', requestRouter);
+app.use('/matching', matchingRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
