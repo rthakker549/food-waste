@@ -19,6 +19,7 @@ router.post('/', function(req, res){
   res.send("Request created")
 })
 
+
 // Update a Request
 router.put('/update', function(req, res){
   let _id = req.body._id;
@@ -29,4 +30,11 @@ router.put('/update', function(req, res){
   restaurant = bc.Restaurants.find({_id : _id});
   res.send(restaurant);
 })
+
+router.delete('/deleteRequest', function(req, res){
+    let _id = req.body._id;
+    bc.Requests.delete({_id:_id});
+    res.send("Request update completed")
+})
+
 module.exports = router;

@@ -28,6 +28,11 @@ router.put('/update', function(req, res){
   bc.Offers.update({_id : _id},{foodQuantity : foodQuantity, deliveryMethod : deliveryMethod});
   offer = bc.Offers.find({_id : _id});
   res.send(offer);
+});  
+router.delete('/deleteOffer', function(req, res){
+    let _id = req.body._id;
+    bc.Offers.delete({_id: _id});
+    res.send("Offer update completed")
 })
 
 module.exports = router;
