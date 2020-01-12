@@ -26,9 +26,9 @@ router.put('/update', function(req, res){
   let foodQuantity = req.body.foodQuantity;
   let deliveryMethod = req.body.deliveryMethod;
 
-  bc.Restaurants.update({_id : _id},{foodQuantity : foodQuantity, deliveryMethod : deliveryMethod});
-  restaurant = bc.Restaurants.find({_id : _id});
-  res.send(restaurant);
+  bc.Requests.update({_id : _id},{foodQuantity : foodQuantity, deliveryMethod : deliveryMethod});
+  request = bc.Requests.find({_id : _id});
+  res.send(request);
 })
 
 router.delete('/deleteRequest', function(req, res){
