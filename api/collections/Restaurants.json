@@ -1,7 +1,7 @@
 [
   {
-    "location": "659 S 197th St.",
-    "name": "Antonio",
+    "location": "Kansas",
+    "name": "MaiThai",
     "foodExcess": [
       [
         {
@@ -28,45 +28,11 @@
         }
       ]
     ],
-    "phoneNumber": "402-306-9999",
-    "email": "rthakker549@gmail.com",
-    "_id": "0t4vn4voim3",
-    "_createdDate": 1578792085668,
-    "_updatedDate": 1578792085668
-  },
-  {
-    "location": "659 S 197th St.",
-    "name": "Antonio",
-    "foodExcess": [
-      [
-        {
-          "date": "2014-03-12T13:37:27+00:00",
-          "excessInKg": 30
-        },
-        {
-          "date": "2015-11-11T12:27:27+00:00",
-          "excessInKg": 100
-        }
-      ]
-    ],
-    "transactionHistory": [
-      [
-        {
-          "date": "2014-03-12T13:37:27+00:00",
-          "donationInKg": 30,
-          "shelterId": 1
-        },
-        {
-          "date": "2015-11-03T03:47:27+00:00",
-          "donationInKg": 15,
-          "shelterId": 1
-        }
-      ]
-    ],
-    "phoneNumber": "402-306-9999",
-    "email": "rthakker549@gmail.com",
-    "_id": "honbglqtqzp",
-    "_createdDate": 1578792103439,
-    "_updatedDate": 1578792103439
+    "phoneNumber": "513-315-6789",
+    "email": "Hello123@gmail.com",
+    "_id": "tbumlux7grb",
+    "_createdDate": 1578806389301,
+    "_updatedDate": 1578806389301,
+    "_modDate": 1578806404639
   }
 ]
