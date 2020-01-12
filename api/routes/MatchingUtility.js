@@ -114,7 +114,7 @@ function GetMatchHelper(shelters, average, stdev){
 }
 
 function TopXMatches(Offer, x){
-    matches = GetMatchPercentages();
+    matches = GetNeedPercentages();
     matches = matches.sort((e,f) =>{
         if(e.percentile > f.percentile) return 1;
         if(e.percentile < f.percentile) return  -1;
