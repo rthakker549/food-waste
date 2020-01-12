@@ -119,7 +119,8 @@ router.post('/', function(req, res){
       email: email
   });
 
-  res.send("Restaurant created")
+  let toRet = bc.Restaurants.find({name : name});
+  res.send(toRet);
 });
 
 // Update restaurant

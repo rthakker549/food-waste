@@ -29,8 +29,8 @@ router.post('/', function(req, res){
     demographics: Object(demographics),
     transactionHistory: Array(transactionHistory)
   })
-
-  res.send("Shelter created")
+  let toRet = bc.Shelters.find({name : name});
+  res.send(toRet);
 })
 
 // Update shelter info
