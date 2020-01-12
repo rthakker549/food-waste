@@ -1,8 +1,8 @@
 module.exports = {
     address : String,
     zipCode : String,
-    City : String,
-    State : String,
+    city : String,
+    state : String,
     name : String,
     foodExcess : Array,
     transactionHistory : Array,

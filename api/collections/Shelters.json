@@ -1,41 +1,92 @@
 [
   {
-    "location": "Kansas",
+    "address": "630 N 14th Street",
+    "zipCode": "68508",
+    "state": "Nebraska",
+    "city": "Lincoln",
     "name": "Good for Food",
     "phoneNumber": "513-315-6789",
     "email": "Hello123@gmail.com",
     "foodServed": [
       [
-        {
-          "peopleCount": 200,
-          "foodInKgsServed": 100,
-          "date": "2019-02-17T13:37:27+00:00"
-        },
-        {
-          "peopleCount": 1000,
-          "foodInKgsServed": 300,
-          "date": "2020-01-10T10:37:57+00:00"
-        }
+        [
+          {
+            "peopleCount": 200,
+            "foodInKgsServed": 100,
+            "date": "2019-02-17T13:37:27+00:00"
+          },
+          {
+            "peopleCount": 1000,
+            "foodInKgsServed": 300,
+            "date": "2020-01-10T10:37:57+00:00"
+          }
+        ]
       ]
     ],
     "demographics": {},
     "transactionHistory": [
       [
-        {
-          "date": "2014-03-12T13:37:27+00:00",
-          "donationInKg": 30,
-          "shelterId": 1
-        },
-        {
-          "date": "2015-11-03T03:47:27+00:00",
-          "donationInKg": 15,
-          "shelterId": 1
-        }
+        [
+          {
+            "date": "2014-03-12T13:37:27+00:00",
+            "donationInKg": 30,
+            "shelterId": 1
+          },
+          {
+            "date": "2015-11-03T03:47:27+00:00",
+            "donationInKg": 15,
+            "shelterId": 1
+          }
+        ]
       ]
     ],
-    "_id": "k6t0sd4l7ga",
-    "_createdDate": 1578805463338,
-    "_updatedDate": 1578805463338,
-    "_modDate": 1578805532876
+    "_id": "awyu3ct298",
+    "_createdDate": 1578827073722,
+    "_updatedDate": 1578827073722
+  },
+  {
+    "address": "3302 O Street",
+    "zipCode": "68510",
+    "state": "Nebraska",
+    "city": "Lincoln",
+    "name": "Shelter Two",
+    "phoneNumber": "513-315-6789",
+    "email": "Hello123@gmail.com",
+    "foodServed": [
+      [
+        [
+          {
+            "peopleCount": 200,
+            "foodInKgsServed": 100,
+            "date": "2019-02-17T13:37:27+00:00"
+          },
+          {
+            "peopleCount": 1000,
+            "foodInKgsServed": 300,
+            "date": "2020-01-10T10:37:57+00:00"
+          }
+        ]
+      ]
+    ],
+    "demographics": {},
+    "transactionHistory": [
+      [
+        [
+          {
+            "date": "2014-03-12T13:37:27+00:00",
+            "donationInKg": 30,
+            "shelterId": 1
+          },
+          {
+            "date": "2015-11-03T03:47:27+00:00",
+            "donationInKg": 15,
+            "shelterId": 1
+          }
+        ]
+      ]
+    ],
+    "_id": "4dy2st079mp",
+    "_createdDate": 1578827355558,
+    "_updatedDate": 1578827355558
   }
 ]
