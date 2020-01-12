@@ -71,7 +71,7 @@ function AverageDonationsAllTime(restaurant){
 }
 
 // Calculation logic
-function getDistancesBetweenRestaurantAndShelters(restaurant, allShelters){
+function getDistancesBetweenRestaurantAndShelters(restaurant, allShelters, callback){
     // address zipcode city state
     let shelterLocations = new Array();
     console.log(allShelters);
@@ -89,9 +89,10 @@ function getDistancesBetweenRestaurantAndShelters(restaurant, allShelters){
     restaurantString += restaurant.city + ",";
     restaurantString += restaurant.state + " ";
     restaurantString += restaurant.zipCode;
-    var result = calculateDistance(restaurantString, shelterLocations); 
-    console.log(result);
-    return result;
+    calculateDistance(restaurantString, shelterLocations, function(distances){
+        // process distances
+        callback(distances);
+    }); 
 }
 
 // Add new restaurant
@@ -143,8 +144,10 @@ router.post('/distances', function(req, res){
     let _id = req.body._id;
     let restaurant = bc.Restaurants.find({_id:_id});
     let shelters = bc.Shelters.findAll({});
-    console.log(shelters);
-    res.send(getDistancesBetweenRestaurantAndShelters(restaurant, shelters));
+    getDistancesBetweenRestaurantAndShelters(restaurant, shelters, function(result){
+        res.send(result);
+
+    });
 })
 
 module.exports = router;

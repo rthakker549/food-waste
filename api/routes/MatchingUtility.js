@@ -6,10 +6,10 @@ const googleMapsClient = require('@google/maps').createClient({
 
 let destinationDistanceData = new Array();
 
-module.exports = function (origin, destinations){    
+module.exports = async function (origin, destinations, callback){    
     //var service = new googleMapsClient.DistanceMatrixService();
-    var data = []
-    data = googleMapsClient.distanceMatrix(
+    
+     googleMapsClient.distanceMatrix(
       {
         origins: [origin],
         destinations: destinations,
@@ -27,29 +27,12 @@ module.exports = function (origin, destinations){
         //       destinationDistanceData.push(pairedDestinationDistance);
         //     }
         //   }
-        console.log(response.json.rows[0].elements);
-       return  response.json.rows[0].elements;
+            callback(response.json.rows[0].elements);
         }
     });
-    console.log(data);
-    return data;
 }
 
-function callback(response) {
-      var origins = response.originAddresses;
-      var destinations = response.destinationAddresses;
 
-      for (var i = 0; i < origins.length; i++) {
-        var results = response.rows[i].elements;
-        for (var j = 0; j < results.length; j++) {
-          var element = results[j];
-          var distance = element.distance.text;
-          var to = destinations[j];
-          let pairedDestinationDistance = {dest: to, dist: distance};
-          destinationDistanceData.push(pairedDestinationDistance);
-        }
-      }
-  }
 var distributions = require('distributions');
 
 function GetNeedPercentages(Offer){
