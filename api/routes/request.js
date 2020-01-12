@@ -7,13 +7,13 @@ router.post('/', function(req, res){
   let shelterId = req.body.shelterId;
   let shelterName = req.body.shelterName;
   let foodQuantity = req.body.foodQuantity;
-  let deliveryMethod = req.body.deliveryMethod;
+  let maxDistance = req.body.maxDistance;
 
   bc.Requests.insert({
       shelterId: shelterId,
       shelterName: shelterName,
       foodQuantity: Number(foodQuantity),
-      deliveryMethod: deliveryMethod
+      maxDistance : maxDistance
   })
 
   res.send("Request created")
@@ -24,9 +24,9 @@ router.post('/', function(req, res){
 router.put('/update', function(req, res){
   let _id = req.body._id;
   let foodQuantity = req.body.foodQuantity;
-  let deliveryMethod = req.body.deliveryMethod;
-
-  bc.Requests.update({_id : _id},{foodQuantity : foodQuantity, deliveryMethod : deliveryMethod});
+  let maxDistance = req.body.maxDistance;
+  
+  bc.Requests.update({_id : _id},{foodQuantity : foodQuantity, maxDistance : maxDistance});
   request = bc.Requests.find({_id : _id});
   res.send(request);
 })
@@ -35,6 +35,11 @@ router.delete('/deleteRequest', function(req, res){
     let _id = req.body._id;
     bc.Requests.delete({_id:_id});
     res.send("Request update completed")
+})
+
+router.get('/getAll', function(req, res){
+  let pendingRequests = bc.Requests.findAll({});
+  res.send(pendingRequests);
 })
 
 module.exports = router;

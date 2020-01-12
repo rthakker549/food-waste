@@ -1,5 +1,8 @@
 module.exports = {
-    location : String, 
+    address : String,
+    zipCode : String,
+    city : String,
+    state : String,
     name : String,
     phoneNumber : String,
     email : String,

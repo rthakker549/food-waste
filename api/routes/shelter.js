@@ -6,7 +6,10 @@ module.exports = router;
 
 // Fulfillment Logic
 router.post('/', function(req, res){
-  let location = req.body.location;
+  let address = req.body.address;
+  let zipCode = req.body.zipCode;
+  let state = req.body.state;
+  let city = req.body.city;
   let name = req.body.name;
   let phoneNumber = req.body.phoneNumber;
   let email = req.body.email;
@@ -15,7 +18,10 @@ router.post('/', function(req, res){
   let transactionHistory = req.body.transactionHistory;
 
   bc.Shelters.insert({
-    location: location,
+    address: address,
+    zipCode: zipCode,
+    state: state,
+    city : city,
     name: name,
     phoneNumber: phoneNumber,
     email: email,
@@ -30,13 +36,16 @@ router.post('/', function(req, res){
 // Update shelter info
 router.put('/update', function(req, res){
   let _id = req.body._id;
-  let location = req.body.location;
+  let address = req.body.address;
+  let zipCode = req.body.zipCode;
+  let state = req.body.state;
+  let city = req.body.city;
   let name = req.body.name;
   let phoneNumber = req.body.phoneNumber;
   let email = req.body.email;
   let demographics = Object(req.body.demographics);
 
-  bc.Shelters.update({_id : _id},{location : location, name : name, 
+  bc.Shelters.update({_id : _id},{address : address, zipCode : zipCode, state : state, city : city, name : name, 
     phoneNumber : phoneNumber, email : email, demographics : demographics});
   shelter = bc.Shelters.find({_id : _id});
   res.send(shelter);
