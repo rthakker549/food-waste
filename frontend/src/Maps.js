@@ -2,7 +2,7 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 import './App.css';
-import { Card, CardBody, CardTitle, CardSubtitle, Button, Container, Row, Col } from "shards-react";
+import { Card, CardBody, CardTitle, CardSubtitle, Button, Container, Row, Col} from "shards-react";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import axios from "axios";
 
@@ -22,40 +22,40 @@ class Maps extends React.Component {
             <div className="cards">
             <Card>
                 <CardBody>
-                    <CardTitle>Shelter 1</CardTitle>
-                     <CardSubtitle>Distance: 420 km | Need: 69 kg</CardSubtitle>
+                    <CardTitle>Yukon Shelter</CardTitle>
+                     <CardSubtitle>Distance: 2.5 km | Need: 30 kg</CardSubtitle>
+                     <Button href="/match">Match</Button>
+                 </CardBody>
+            </Card>
+            <br/>
+            <Card>
+                <CardBody>
+                    <CardTitle>Catholic Charities</CardTitle>
+                     <CardSubtitle>Distance: 1.2 km | Need: 8 kg</CardSubtitle>
                      <Button>Match</Button>
                  </CardBody>
             </Card>
             <br/>
             <Card>
                 <CardBody>
-                    <CardTitle>Shelter 2</CardTitle>
-                     <CardSubtitle>Distance: 420 km | Need: 69 kg</CardSubtitle>
+                    <CardTitle>Salvation Army Belkin House</CardTitle>
+                     <CardSubtitle>Distance: 1.5 km | Need: 12 kg</CardSubtitle>
                      <Button>Match</Button>
                  </CardBody>
             </Card>
             <br/>
             <Card>
                 <CardBody>
-                    <CardTitle>Shelter 3</CardTitle>
-                     <CardSubtitle>Distance: 420 km | Need: 69 kg</CardSubtitle>
+                    <CardTitle>Al Mitchell Place</CardTitle>
+                     <CardSubtitle>Distance: 24 km | Need: 14 kg</CardSubtitle>
                      <Button>Match</Button>
                  </CardBody>
             </Card>
             <br/>
             <Card>
                 <CardBody>
-                    <CardTitle>Shelter 3</CardTitle>
-                     <CardSubtitle>Distance: 420 km | Need: 69 kg</CardSubtitle>
-                     <Button>Match</Button>
-                 </CardBody>
-            </Card>
-            <br/>
-            <Card>
-                <CardBody>
-                    <CardTitle>Shelter 3</CardTitle>
-                     <CardSubtitle>Distance: 420 km | Need: 69 kg</CardSubtitle>
+                    <CardTitle>Triage Shelter</CardTitle>
+                     <CardSubtitle>Distance: 31 km | Need: 45 kg</CardSubtitle>
                      <Button>Match</Button>
                  </CardBody>
             </Card>
@@ -66,9 +66,13 @@ class Maps extends React.Component {
                 google={this.props.google}
                 zoom={8}
                 style={mapStyles}
-                initialCenter={{ lat: 47.444, lng: -122.176}}
+                initialCenter={{ lat: 49.282, lng: -123.121}}
                 >
-                <Marker position={{ lat: 48.00, lng: -122.00}}   label={"1"} />
+                <Marker position={{ lat: 49.271890, lng: -123.112370}}   label={"1"} />
+                <Marker position={{ lat: 49.45890, lng: -123.345}}   label={"2"} />
+                <Marker position={{ lat: 49.716890, lng: -123.234}}   label={"3"} />
+                <Marker position={{ lat: 49.345890, lng: -123.23432}}   label={"4"} />
+                <Marker position={{ lat: 49.154, lng: -123.1234}}   label={"5"} />
                 </Map>
             </Col>
             </Row>

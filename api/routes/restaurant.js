@@ -29,6 +29,13 @@ function TotalDonationsInTimePeriod(restaurant, days){
     return donations;
 }
 
+router.post('/totalDonations', function(req, res){
+    let _id = req.body._id;
+    let currRestaurant = bc.Restaurants.find({_id: _id});
+
+    res.send(TotalDonationsInTimePeriod(currRestaurant, 1));
+});
+
 function AverageDonationsInTimePeriod(restaurant, days){
     let totDonations = TotalDonationsInTimePeriod(restaurant, days);
     if(days === 0){
@@ -39,6 +46,20 @@ function AverageDonationsInTimePeriod(restaurant, days){
     }
     return totDonations / days;
 }
+
+router.post('/avgDonations', function(req, res){
+    let _id = req.body._id;
+    let currRestaurant = bc.Restaurants.find({_id: _id});
+
+    res.send(AverageDonationsInTimePeriod(currRestaurant, 1));
+});
+
+router.post('/numTransactions', function(req, res){
+    let _id = req.body._id;
+    let currRestaurant = bc.Restaurants.find({_id: _id});
+
+    res.send(Array(currRestaurant.transactionHistory).length);
+})
 
 function MostDonationsInATransaction(restaurant){
     let maxDonations = 0;
@@ -96,7 +117,7 @@ router.post('/', function(req, res){
       email: email
   });
 
-  res.send("Restaurant created")
+  res.send("Restaurant created");
 });
 
 // Update restaurant

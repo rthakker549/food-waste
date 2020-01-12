@@ -13,7 +13,7 @@ router.post('/', function(req, res){
       shelterId: shelterId,
       shelterName: shelterName,
       foodQuantity: Number(foodQuantity),
-      maxDistance : maxDistance
+      maxDistance : Number(maxDistance)
   })
 
   res.send("Request created")

@@ -13,6 +13,7 @@ import Requests from './Requests'
 import Offers from './Offers'
 import Maps from "./Maps"
 import Profile from "./Profile"
+import MatchPage from "./MatchPage"
 
 const router = (
     <Router>
@@ -27,6 +28,7 @@ const router = (
             <Route path="/offers" component={Offers} />
             <Route path="/map" component={Maps} />
             <Route path="/profile" component={Profile} />
+            <Route path="/match" component={MatchPage} />
         </div>
     </Router>
 )

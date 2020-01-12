@@ -1,10 +1,10 @@
 [
   {
-    "address": "940 North 26th Street",
-    "zipCode": "68503",
-    "state": "Nebraska",
-    "city": "Lincoln",
-    "name": "MaiThai",
+    "address": "123 Maple St.",
+    "zipCode": "MXW 342",
+    "state": "BC",
+    "city": "Vancover",
+    "name": "Thai Kitchen",
     "foodExcess": [
       [
         {
@@ -31,10 +31,10 @@
         }
       ]
     ],
-    "phoneNumber": "513-315-6789",
-    "email": "Hello123@gmail.com",
-    "_id": "4s5mxocme24",
-    "_createdDate": 1578857529050,
-    "_updatedDate": 1578857529050
+    "phoneNumber": "123-456-7890",
+    "email": "thaikitchen@gmail.com",
+    "_id": "25656pwu868",
+    "_createdDate": 1578853961500,
+    "_updatedDate": 1578853961500
   }
 ]
