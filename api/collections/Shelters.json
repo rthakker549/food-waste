@@ -1,0 +1,41 @@
+[
+  {
+    "location": "Kansas",
+    "name": "Good for Food",
+    "phoneNumber": "513-315-6789",
+    "email": "Hello123@gmail.com",
+    "foodServed": [
+      [
+        {
+          "peopleCount": 200,
+          "foodInKgsServed": 100,
+          "date": "2019-02-17T13:37:27+00:00"
+        },
+        {
+          "peopleCount": 1000,
+          "foodInKgsServed": 300,
+          "date": "2020-01-10T10:37:57+00:00"
+        }
+      ]
+    ],
+    "demographics": {},
+    "transactionHistory": [
+      [
+        {
+          "date": "2014-03-12T13:37:27+00:00",
+          "donationInKg": 30,
+          "shelterId": 1
+        },
+        {
+          "date": "2015-11-03T03:47:27+00:00",
+          "donationInKg": 15,
+          "shelterId": 1
+        }
+      ]
+    ],
+    "_id": "k6t0sd4l7ga",
+    "_createdDate": 1578805463338,
+    "_updatedDate": 1578805463338,
+    "_modDate": 1578805532876
+  }
+]

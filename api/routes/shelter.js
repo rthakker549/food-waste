@@ -1,15 +1,11 @@
 var express = require('express');
 var router = express.Router();
-let bc = require('badcube')
+let bc = require('badcube');
 
-/* Get all Shelters */
-router.get('/', function(req, res) {
-  let allShelters = bc.Shelters.findAll({});
-  res.json(allShelters);
-});
+module.exports = router;
 
-router.post('/shelter', function(req, res){
-  let id = req.body.id;
+// Fulfillment Logic
+router.post('/', function(req, res){
   let location = req.body.location;
   let name = req.body.name;
   let phoneNumber = req.body.phoneNumber;
@@ -19,7 +15,6 @@ router.post('/shelter', function(req, res){
   let transactionHistory = req.body.transactionHistory;
 
   bc.Shelters.insert({
-    id: Number (id),
     location: location,
     name: name,
     phoneNumber: phoneNumber,
@@ -32,4 +27,20 @@ router.post('/shelter', function(req, res){
   res.send("Shelter created")
 })
 
-module.exports = router;
+// Update shelter info
+router.put('/update', function(req, res){
+  let _id = req.body._id;
+  let location = req.body.location;
+  let name = req.body.name;
+  let phoneNumber = req.body.phoneNumber;
+  let email = req.body.email;
+  let demographics = Object(req.body.demographics);
+
+  bc.Shelters.update({_id : _id},{location : location, name : name, 
+    phoneNumber : phoneNumber, email : email, demographics : demographics});
+  shelter = bc.Shelters.find({_id : _id});
+  res.send(shelter);
+})
+
+// Metrics Logic
+
