@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 let bc = require('badcube')
 
+// Add a request
 router.post('/', function(req, res){
   let shelterId = req.body.shelterId;
   let shelterName = req.body.shelterName;
@@ -18,4 +19,14 @@ router.post('/', function(req, res){
   res.send("Request created")
 })
 
+// Update a Request
+router.put('/update', function(req, res){
+  let _id = req.body._id;
+  let foodQuantity = req.body.foodQuantity;
+  let deliveryMethod = req.body.deliveryMethod;
+
+  bc.Restaurants.update({_id : _id},{foodQuantity : foodQuantity, deliveryMethod : deliveryMethod});
+  restaurant = bc.Restaurants.find({_id : _id});
+  res.send(restaurant);
+})
 module.exports = router;
