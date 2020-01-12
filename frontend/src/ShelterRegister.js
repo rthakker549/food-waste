@@ -4,40 +4,77 @@ import "shards-ui/dist/css/shards.min.css";
 import './App.css';
 import { Form, FormInput, FormGroup, FormSelect, Button } from "shards-react";
 import axios from "axios";
+import {Redirect} from 'react-router-dom'
+
 
 class ShelterRegister extends React.Component {
+    state = {
+        redirect: false
+      }
+    
+      setRedirect = (event) => {
+        const elements = event.target.elements;
+        console.log(elements);
+        const update = {
+          name: elements.name.value,
+          email: elements.email.value,
+          phoneNumber: elements.phone.value,
+          address: elements.address.value,
+          city: elements.city.value,
+          state: elements.state.value,
+          zipCode: elements.zip.value,
+          foodServed: [],
+          demographics: {},
+          transactionHistory: {}
+        }
+        axios.post("http://localhost:9000/shelter/", update).then(function (response) {
+          console.log(response);
+        }).catch(function (error) {
+          console.log(error.response);
+        })
+        this.setState({
+          redirect: true
+        })
+      }
+    
+      renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/requests' />
+        }
+      }
 
     render() {
         return (
             <div className="registerForm">
-            <Form>
+            {this.renderRedirect()}
+            <Form onSubmit={this.setRedirect}>
                 <FormGroup>
-                    <label htmlFor="#name">Name</label>
-                    <FormInput id="#name" placeholder="Name" />
+                    <label htmlFor="name">Name</label>
+                    <FormInput id="name" placeholder="Name" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#password">Password</label>
-                    <FormInput type="password" id="#password" placeholder="Password" />
+                    <label htmlFor="password">Password</label>
+                    <FormInput type="password" id="password" placeholder="Password" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#email">Email</label>
-                    <FormInput type="email" id="#email" placeholder="Email" />
+                    <label htmlFor="email">Email</label>
+                    <FormInput type="email" id="email" placeholder="Email" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#phone">Phone Number</label>
-                    <FormInput type="tel" id="#phone" placeholder="Phone Number" />
+                    <label htmlFor="phone">Phone Number</label>
+                    <FormInput type="tel" id="phone" placeholder="Phone Number" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#address">Address</label>
-                    <FormInput id="#address" placeholder="Address" />
+                    <label htmlFor="address">Address</label>
+                    <FormInput id="address" placeholder="Address" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#city">City</label>
-                    <FormInput id="#city" placeholder="City" />
+                    <label htmlFor="city">City</label>
+                    <FormInput id="city" placeholder="City" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#state">State/Province</label>
-                    <FormSelect id="#state" placeholder="State/Province">
+                    <label htmlFor="state">State/Province</label>
+                    <FormSelect id="state" placeholder="State/Province">
                         <option value="AK">Alaska</option>
                         <option value="AL">Alabama</option>
                         <option value="AR">Arkansas</option>
@@ -106,10 +143,10 @@ class ShelterRegister extends React.Component {
                     </FormSelect>
                 </FormGroup>
                 <FormGroup>
-                <label htmlFor="#zip">Postal Code</label>
-                <FormInput id="#zip" placeholder="Postal Code" />
+                <label htmlFor="zip">Postal Code</label>
+                <FormInput id="zip" placeholder="Postal Code" />
                 </FormGroup>
-                <Button size="lg">Submit</Button>
+                <Button type="submit" size="lg">Submit</Button>
             </Form>
         </div>
         )

@@ -10,7 +10,7 @@ class Offers extends React.Component {
     render() {
         return (
             <div className="registerForm">
-            <Form>
+            <Form >
                 <FormGroup>
                     <label htmlFor="#quantity">How much food are you offering?</label>
                     <FormInput id="#quantity"  type="number" placeholder="Quantity" /> kgs
@@ -22,7 +22,7 @@ class Offers extends React.Component {
                         <option value="false">Pickup</option>
                     </FormSelect>
                 </FormGroup>
-                <Button size="lg" href="/map">Submit</Button>
+                <Button size="lg" type="submit">Submit</Button>
             </Form>
         </div>
         )
