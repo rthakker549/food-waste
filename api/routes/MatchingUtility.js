@@ -40,7 +40,7 @@ function GetNeedPercentages(Offer){
     let sheltersInNeed = allRequests.map(e => {
         bc.Shelters.find({_id : e.shelterId});
     });
-    let sheltersInNeed = sheltersInNeed.filter(e =>{
+    sheltersInNeed = sheltersInNeed.filter(e =>{
         if(/* Distance between e and rest > e.maxDistance return false*/false){
             return false;
         }
