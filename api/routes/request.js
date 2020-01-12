@@ -38,7 +38,8 @@ router.delete('/deleteRequest', function(req, res){
 })
 
 router.get('/getAll', function(req, res){
-  
+  let pendingRequests = bc.Requests.findAll({});
+  res.send(pendingRequests);
 })
 
 module.exports = router;
