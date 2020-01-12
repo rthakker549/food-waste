@@ -1,21 +1,21 @@
 var express = require('express');
 var router = express.Router();
-let bc = require('badcube');
+let bc = require('badcube')
 
 router.post('/', function(req, res){
-  let restaurantId = req.body.restaurantId;
-  let restaurantName = req.body.restaurantName;
+  let shelterId = req.body.shelterId;
+  let shelterName = req.body.shelterName;
   let foodQuantity = req.body.foodQuantity;
   let deliveryMethod = req.body.deliveryMethod;
 
-  bc.Offers.insert({
-      restaurantId: restaurantId,
-      restaurantName: restaurantName,
+  bc.Requests.insert({
+      shelterId: shelterId,
+      shelterName: shelterName,
       foodQuantity: Number(foodQuantity),
       deliveryMethod: deliveryMethod
   })
 
-  res.send("Offer created")
+  res.send("Request created")
 })
 
 module.exports = router;

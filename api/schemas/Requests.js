@@ -1,6 +1,6 @@
 module.exports = {
-    restaurantId: String,
-    restaurantName: String,
+    shelterId: String,
+    shelterName: String,
     foodQuantity: Number,
     deliveryMethod: Boolean
 }
