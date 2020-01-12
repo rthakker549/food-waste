@@ -25,9 +25,9 @@ router.post('/', function(req, res){
     name: name,
     phoneNumber: phoneNumber,
     email: email,
-    foodServed: Array(foodServed),
+    foodServed: foodServed,
     demographics: Object(demographics),
-    transactionHistory: Array(transactionHistory)
+    transactionHistory: transactionHistory
   })
   let toRet = bc.Shelters.find({name : name});
   res.send(toRet);

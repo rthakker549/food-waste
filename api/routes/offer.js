@@ -7,13 +7,11 @@ router.post('/', function(req, res){
   let restaurantId = req.body.restaurantId;
   let restaurantName = req.body.restaurantName;
   let foodQuantity = req.body.foodQuantity;
-  let deliveryMethod = req.body.deliveryMethod;
 
   bc.Offers.insert({
       restaurantId: restaurantId,
       restaurantName: restaurantName,
-      foodQuantity: Number(foodQuantity),
-      deliveryMethod: deliveryMethod
+      foodQuantity: Number(foodQuantity)
   })
 
   res.send("Offer created")
@@ -23,7 +21,6 @@ router.post('/', function(req, res){
 router.put('/update', function(req, res){
   let _id = req.body._id;
   let foodQuantity = req.body.foodQuantity;
-  let deliveryMethod = req.body.deliveryMethod;
 
   bc.Offers.update({_id : _id},{foodQuantity : foodQuantity, deliveryMethod : deliveryMethod});
   offer = bc.Offers.find({_id : _id});

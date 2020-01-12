@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 let bc = require('badcube');
-let calculateDistance = require('./MatchingUtility.js');
-
+let getDistancesBetweenRestaurantAndShelters = require('./MatchingUtility.js');
+let TopXMatches = require('./MatchingUtility.js');
 module.exports = router;
 
 
@@ -29,6 +29,13 @@ function TotalDonationsInTimePeriod(restaurant, days){
     return donations;
 }
 
+router.post('/totalDonations', function(req, res){
+    let _id = req.body._id;
+    let currRestaurant = bc.Restaurants.find({_id: _id});
+
+    res.send(TotalDonationsInTimePeriod(currRestaurant, 1));
+});
+
 function AverageDonationsInTimePeriod(restaurant, days){
     let totDonations = TotalDonationsInTimePeriod(restaurant, days);
     if(days === 0){
@@ -39,6 +46,20 @@ function AverageDonationsInTimePeriod(restaurant, days){
     }
     return totDonations / days;
 }
+
+router.post('/avgDonations', function(req, res){
+    let _id = req.body._id;
+    let currRestaurant = bc.Restaurants.find({_id: _id});
+
+    res.send(AverageDonationsInTimePeriod(currRestaurant, 1));
+});
+
+router.post('/numTransactions', function(req, res){
+    let _id = req.body._id;
+    let currRestaurant = bc.Restaurants.find({_id: _id});
+
+    res.send(Array(currRestaurant.transactionHistory).length);
+})
 
 function MostDonationsInATransaction(restaurant){
     let maxDonations = 0;
@@ -71,29 +92,6 @@ function AverageDonationsAllTime(restaurant){
 }
 
 // Calculation logic
-function getDistancesBetweenRestaurantAndShelters(restaurant, allShelters, callback){
-    // address zipcode city state
-    let shelterLocations = new Array();
-    console.log(allShelters);
-    allShelters.forEach(element => {
-        let combinedAddress = "";
-        combinedAddress += element.address + " ";
-        combinedAddress += element.city + ",";
-        combinedAddress += element.state + " ";
-        combinedAddress += element.zipCode;
-        shelterLocations.push(combinedAddress);
-    })
-
-    let restaurantString = "";
-    restaurantString += restaurant.address + " ";
-    restaurantString += restaurant.city + ",";
-    restaurantString += restaurant.state + " ";
-    restaurantString += restaurant.zipCode;
-    calculateDistance(restaurantString, shelterLocations, function(distances){
-        // process distances
-        callback(distances);
-    }); 
-}
 
 // Add new restaurant
 router.post('/', function(req, res){
@@ -119,8 +117,12 @@ router.post('/', function(req, res){
       email: email
   });
 
+<<<<<<< HEAD
   let toRet = bc.Restaurants.find({name : name});
   res.send(toRet);
+=======
+  res.send("Restaurant created");
+>>>>>>> d7111e29680c70898e28c8ed620d65acff659cae
 });
 
 // Update restaurant
@@ -151,4 +153,14 @@ router.post('/distances', function(req, res){
     });
 })
 
+router.post('/TopMatches', function(req, res){
+    let offer = {
+        restaurantId: req.body.restaurantId,
+        restaurantName: req.body.restaurantName,
+        foodQuantity: req.body.foodQuantity,
+    }
+    let x = req.body.count;
+    let mostNeedful = TopXMatches(offer, x);
+    res.send(mostNeedful);
+})
 module.exports = router;
