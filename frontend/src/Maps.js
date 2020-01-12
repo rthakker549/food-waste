@@ -2,7 +2,7 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 import './App.css';
-import { Card, CardBody, CardTitle, CardSubtitle, Button, Container, Row, Col } from "shards-react";
+import { Card, CardBody, CardTitle, CardSubtitle, Button, Container, Row, Col} from "shards-react";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import axios from "axios";
 
@@ -24,7 +24,7 @@ class Maps extends React.Component {
                 <CardBody>
                     <CardTitle>Yukon Shelter</CardTitle>
                      <CardSubtitle>Distance: 2.5 km | Need: 30 kg</CardSubtitle>
-                     <Button>Match</Button>
+                     <Button href="/match">Match</Button>
                  </CardBody>
             </Card>
             <br/>

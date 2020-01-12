@@ -1,20 +1,20 @@
 [
   {
-    "address": "1407 N 134TH CIR",
-    "zipCode": "68154",
-    "state": "NE",
-    "city": "OMAHA",
-    "name": "Rohan Jayesh Thakker",
+    "address": "123 Maple St.",
+    "zipCode": "MXW 342",
+    "state": "BC",
+    "city": "Vancover",
+    "name": "Thai Kitchen",
     "foodExcess": [
       ""
     ],
     "transactionHistory": [
       ""
     ],
-    "phoneNumber": "4023218727",
-    "email": "rthakker549@gmail.com",
-    "_id": "3y3llvgsfsu",
-    "_createdDate": 1578845543309,
-    "_updatedDate": 1578845543309
+    "phoneNumber": "123-456-7890",
+    "email": "thaikitchen@gmail.com",
+    "_id": "25656pwu868",
+    "_createdDate": 1578853961500,
+    "_updatedDate": 1578853961500
   }
 ]

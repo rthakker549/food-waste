@@ -36,14 +36,14 @@ class Requests extends React.Component {
     
       renderRedirect = () => {
         if (this.state.redirect) {
-          return <Redirect to='/map' />
+          return <Redirect to='/profile' />
         }
       }
 
     render() {
         return (
             <div className="registerForm">
-                {this.renderRedirect}
+            {this.renderRedirect()}
             <Form onSubmit={this.setRedirect}>
                 <FormGroup>
                     <label htmlFor="quantity">How much food are you requesting?</label>

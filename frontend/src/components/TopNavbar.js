@@ -7,7 +7,7 @@ function TopNavbar() {
 
   return (
     <Navbar className="navBar">
-      <NavbarBrand href="/">Food Waste Solution</NavbarBrand>
+      <NavbarBrand href="/">Food For All</NavbarBrand>
         <Nav>
           <NavItem>
             <NavLink href="/offers">
