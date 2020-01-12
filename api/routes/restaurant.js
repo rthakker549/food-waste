@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let bc = require('badcube');
-let matchUtility = require('./MatchingUtility.js');
+let calculateDistance = require('./MatchingUtility.js');
 
 module.exports = router;
 
@@ -74,16 +74,24 @@ function AverageDonationsAllTime(restaurant){
 function getDistancesBetweenRestaurantAndShelters(restaurant, allShelters){
     // address zipcode city state
     let shelterLocations = new Array();
-    allShelters.array.forEach(element => {
+    console.log(allShelters);
+    allShelters.forEach(element => {
         let combinedAddress = "";
         combinedAddress += element.address + " ";
         combinedAddress += element.city + ",";
         combinedAddress += element.state + " ";
-        combinedAddress += zipcode;
-        shelterLocation.push(combinedAddress);
+        combinedAddress += element.zipCode;
+        shelterLocations.push(combinedAddress);
     })
 
-    matchUtility.calculateDistanceBetweenTwoLocations(restaurant, shelterLocations);
+    let restaurantString = "";
+    restaurantString += restaurant.address + " ";
+    restaurantString += restaurant.city + ",";
+    restaurantString += restaurant.state + " ";
+    restaurantString += restaurant.zipCode;
+    var result = calculateDistance(restaurantString, shelterLocations); 
+    console.log(result);
+    return result;
 }
 
 // Add new restaurant
@@ -134,7 +142,8 @@ router.put('/update', function(req, res){
 router.post('/distances', function(req, res){
     let _id = req.body._id;
     let restaurant = bc.Restaurants.find({_id:_id});
-    let shelters = bc.Shelters.FindAll({});
+    let shelters = bc.Shelters.findAll({});
+    console.log(shelters);
     res.send(getDistancesBetweenRestaurantAndShelters(restaurant, shelters));
 })
 
