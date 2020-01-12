@@ -52,7 +52,7 @@ router.post('/', function(req, res){
   let phoneNumber = req.body.phoneNumber;
   let email = req.body.email;
 
-  bc.restaurant.insert({
+  bc.Restaurants.insert({
       id: Number (id),
       location: location,
       name: name,
@@ -64,5 +64,6 @@ router.post('/', function(req, res){
 
   res.send("Restaurant created")
 });
+
 
 module.exports = router;
