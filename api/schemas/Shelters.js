@@ -6,4 +6,4 @@ module.exports = {
     foodServed : Array, 
     demographics : Object,
     transactionHistory : Array
-}
+}       
