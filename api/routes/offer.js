@@ -18,4 +18,10 @@ router.post('/', function(req, res){
   res.send("Offer created")
 })
 
+router.delete('/deleteOffer', function(req, res){
+    let _id = req.body._id;
+    bc.Offers.delete({_id: _id});
+    res.send("Offer update completed")
+})
+
 module.exports = router;
