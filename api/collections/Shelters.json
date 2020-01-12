@@ -1,0 +1,43 @@
+[
+  {
+    "location": "123 Sesame Street.",
+    "name": "Food for Good",
+    "phoneNumber": "402-889-8989",
+    "email": "TonyMikeyLinny@gmail.com",
+    "foodServed": [
+      [
+        {
+          "peopleCount": 200,
+          "foodInKgsServed": 100,
+          "date": "2019-02-17T13:37:27+00:00"
+        },
+        {
+          "peopleCount": 1000,
+          "foodInKgsServed": 300,
+          "date": "2020-01-10T10:37:57+00:00"
+        }
+      ]
+    ],
+    "demographics": {
+      "GenderedShelter": true,
+      "AverageAge": 30
+    },
+    "transactionHistory": [
+      [
+        {
+          "date": "2014-03-12T13:37:27+00:00",
+          "donationInKg": 30,
+          "shelterId": 1
+        },
+        {
+          "date": "2015-11-03T03:47:27+00:00",
+          "donationInKg": 15,
+          "shelterId": 1
+        }
+      ]
+    ],
+    "_id": "c22oqn4tj3",
+    "_createdDate": 1578797354016,
+    "_updatedDate": 1578797354016
+  }
+]

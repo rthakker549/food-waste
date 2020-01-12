@@ -1,15 +1,10 @@
 var express = require('express');
 var router = express.Router();
-let bc = require('badcube')
+let bc = require('badcube');
 
-/* Get all Shelters */
-router.get('/', function(req, res) {
-  let allShelters = bc.Shelters.findAll({});
-  res.json(allShelters);
-});
+module.exports = router;
 
-router.post('/shelter', function(req, res){
-  let id = req.body.id;
+router.post('/', function(req, res){
   let location = req.body.location;
   let name = req.body.name;
   let phoneNumber = req.body.phoneNumber;
@@ -19,7 +14,6 @@ router.post('/shelter', function(req, res){
   let transactionHistory = req.body.transactionHistory;
 
   bc.Shelters.insert({
-    id: Number (id),
     location: location,
     name: name,
     phoneNumber: phoneNumber,
@@ -32,4 +26,3 @@ router.post('/shelter', function(req, res){
   res.send("Shelter created")
 })
 
-module.exports = router;
