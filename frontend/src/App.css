@@ -28,6 +28,64 @@
   color: #61dafb;
 }
 
+.reactCalendar {
+  margin-left: 25%;
+}
+
+.bgImg {
+  height: 92.5vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  background: url("austin-schmid-hRdVSYpffas-unsplash.jpg");
+  background-size: cover;
+}
+
+.bgImg h1 {
+  color: white;
+}
+
+a.btn{
+  margin-right: 20px;
+}
+
+.registerForm {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 974px;
+  width: 670px;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none!important;
+  height: 974px;
+  width: 670px;
+}
+
+.Portal {
+  padding: 8em;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
