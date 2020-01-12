@@ -39,6 +39,36 @@ function AverageDonationsInTimePeriod(restaurant, days){
     return totDonations / days;
 }
 
+function MostDonationsInATransaction(restaurant){
+    let maxDonations = 0;
+    let transaction = restaurant.transactionHistory;
+    
+    transaction.array.forEach(element => {
+        if(element.foodQuantity > maxDonations){
+            maxDonations = element.foodQuantity;
+        }
+    })
+    return maxDonations;
+}
+
+function AverageDonationsAllTime(restaurant){
+    let totDonations = 0;
+    let days = 0;
+
+    transaction.array.forEach(element => {
+        totDonations += element.foodQuantity;
+        days++;
+    })
+
+    if(days === 0){
+        return undefined;
+    }
+    if(totDonations === false){
+        return false;
+    }
+    return totDonations / days;
+}
+
 // Profile Business Logic
 
 // Routing

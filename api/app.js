@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var restaurantRouter = require('./routes/restaurant');
 var shelterRouter = require('./routes/shelter');
+var offerRouter = require('./routes/offer');
+var requestRouter = require('./routes/request');
 
 var app = express();
 
@@ -29,6 +31,8 @@ app.use('/', indexRouter);
 app.use('/restaurant', restaurantRouter);
 app.use('/shelter', shelterRouter);
 app.use('/users', usersRouter);
+app.use('/offer', offerRouter);
+app.use('/request', requestRouter);
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -45,6 +49,5 @@ app.use(function(err, req, res, next) {
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
 
 module.exports = app;

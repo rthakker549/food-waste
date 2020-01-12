@@ -1,0 +1,11 @@
+[
+  {
+    "restaurantId": "3abc",
+    "restaurantName": "McDonalds",
+    "foodQuantity": 45,
+    "preferredDeliveryMethod": true,
+    "_id": "bq3s74tv22",
+    "_createdDate": 1578797991398,
+    "_updatedDate": 1578797991398
+  }
+]
