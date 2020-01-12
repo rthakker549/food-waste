@@ -1,4 +1,38 @@
 let bc = require('badcube');
+const googleMapsClient = require('@google/maps').createClient({
+    key: 'AIzaSyAsOwjMvnngb1TYDM8W0aqxFZYNdkM7tH8',
+    Promise: Promise
+  });
+
+let destinationDistanceData = new Array();
+
+module.exports = async function (origin, destinations, callback){    
+    //var service = new googleMapsClient.DistanceMatrixService();
+    
+     googleMapsClient.distanceMatrix(
+      {
+        origins: [origin],
+        destinations: destinations,
+      }, function(err, response) {
+        if (!err) {
+          
+    
+        //   for (var i = 0; i < origins.length; i++) {
+        //     var results = response.rows[i].elements;
+        //     for (var j = 0; j < results.length; j++) {
+        //       var element = results[j];
+        //       var distance = element.distance.text;
+        //       var to = destinations2[j];
+        //       let pairedDestinationDistance = {dest: to, dist: distance};
+        //       destinationDistanceData.push(pairedDestinationDistance);
+        //     }
+        //   }
+            callback(response.json.rows[0].elements);
+        }
+    });
+}
+
+
 var distributions = require('distributions');
 
 function GetNeedPercentages(Offer){
