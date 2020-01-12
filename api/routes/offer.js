@@ -36,4 +36,8 @@ router.delete('/deleteOffer', function(req, res){
     res.send("Offer update completed")
 })
 
+router.get('/getAll', function(req, res){
+  let offers = bc.Offers.findAll({});
+  res.send(offers);
+})
 module.exports = router;

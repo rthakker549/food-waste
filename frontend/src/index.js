@@ -6,6 +6,13 @@ import TopNavbar from './components/TopNavbar';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Login from './Login'
+import Metrics from './Metrics'
+import Register from './Register'
+import ShelterRegister from './ShelterRegister'
+import Requests from './Requests'
+import Offers from './Offers'
+import Maps from "./Maps"
+import Profile from "./Profile"
 
 const router = (
     <Router>
@@ -13,6 +20,13 @@ const router = (
             <TopNavbar/>
             <Route exact path="/" component={App}/>
             <Route path="/login" component={Login}/>
+            <Route path="/metrics" component={Metrics}/>
+            <Route path="/register" component={Register}/>
+            <Route path="/shelterreg" component={ShelterRegister} />
+            <Route path="/requests" component={Requests} />
+            <Route path="/offers" component={Offers} />
+            <Route path="/map" component={Maps} />
+            <Route path="/profile" component={Profile} />
         </div>
     </Router>
 )
