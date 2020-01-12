@@ -2,45 +2,79 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "shards-ui/dist/css/shards.min.css";
 import './App.css';
+import { Redirect } from 'react-router-dom';
 import { Form, FormInput, FormGroup, FormSelect, Button } from "shards-react";
 import axios from "axios";
 
 class Register extends React.Component {
     state = {
-        date: new Date(),
-    }
+        redirect: false
+      }
+    
+      setRedirect = (event) => {
+        const elements = event.target.elements;
+        console.log(elements);
+        const update = {
+          name: elements.name.value,
+          email: elements.email.value,
+          phoneNumber: elements.phone.value,
+          address: elements.address.value,
+          city: elements.city.value,
+          state: elements.state.value,
+          zipCode: elements.zip.value,
+          foodExcess: "",
+          transactionHistory:""
+        }
+        console.log(update);
+        axios.post("http://localhost:9000/restaurant/", update).then(function (response) {
+          console.log(response);
+       
+        }).catch(function (error) {
+          console.log(error.response);
+        })
+        this.setState({
+            redirect: true
+          })
+      }
+    
+      renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/offers' />
+        }
+      }
 
     render() {
         return (
             <div className="registerForm">
-            <Form>
+            {this.renderRedirect()}
+            <Form onSubmit={this.setRedirect}>
                 <FormGroup>
-                    <label htmlFor="#name">Name</label>
-                    <FormInput id="#name" placeholder="Name" />
+                    <label htmlFor="name">Name</label>
+                    <FormInput id="name" placeholder="Name" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#password">Password</label>
-                    <FormInput type="password" id="#password" placeholder="Password" />
+                    <label htmlFor="password">Password</label>
+                    <FormInput type="password" id="password" placeholder="Password" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#email">Email</label>
-                    <FormInput type="email" id="#email" placeholder="Email" />
+                    <label htmlFor="email">Email</label>
+                    <FormInput type="email" id="email" placeholder="Email" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#phone">Phone Number</label>
-                    <FormInput type="tel" id="#phone" placeholder="Phone Number" />
+                    <label htmlFor="phone">Phone Number</label>
+                    <FormInput type="tel" id="phone" placeholder="Phone Number" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#address">Address</label>
-                    <FormInput id="#address" placeholder="Address" />
+                    <label htmlFor="address">Address</label>
+                    <FormInput id="address" placeholder="Address" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#city">City</label>
-                    <FormInput id="#city" placeholder="City" />
+                    <label htmlFor="city">City</label>
+                    <FormInput id="city" placeholder="City" />
                 </FormGroup>
                 <FormGroup>
-                    <label htmlFor="#state">State/Province</label>
-                    <FormSelect id="#state" placeholder="State/Province">
+                    <label htmlFor="state">State/Province</label>
+                    <FormSelect id="state" placeholder="State/Province">
                         <option value="AK">Alaska</option>
                         <option value="AL">Alabama</option>
                         <option value="AR">Arkansas</option>
@@ -109,10 +143,10 @@ class Register extends React.Component {
                     </FormSelect>
                 </FormGroup>
                 <FormGroup>
-                <label htmlFor="#zip">Postal Code</label>
-                <FormInput id="#zip" placeholder="Postal Code" />
+                <label htmlFor="zip">Postal Code</label>
+                <FormInput id="zip" placeholder="Postal Code" />
                 </FormGroup>
-                <Button size="lg">Submit</Button>
+                <Button size="lg" type="submit">Submit</Button>
             </Form>
         </div>
         )

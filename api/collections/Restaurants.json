@@ -1,44 +1,20 @@
 [
   {
-    "address": "940 North 26th Street",
-    "zipCode": "68503",
-    "state": "Nebraska",
-    "city": "Lincoln",
-    "name": "MaiThai",
+    "address": "1407 N 134TH CIR",
+    "zipCode": "68154",
+    "state": "NE",
+    "city": "OMAHA",
+    "name": "Rohan Jayesh Thakker",
     "foodExcess": [
-      [
-        [
-          {
-            "date": "2014-03-12T13:37:27+00:00",
-            "excessInKg": 30
-          },
-          {
-            "date": "2015-11-11T12:27:27+00:00",
-            "excessInKg": 100
-          }
-        ]
-      ]
+      ""
     ],
     "transactionHistory": [
-      [
-        [
-          {
-            "date": "2014-03-12T13:37:27+00:00",
-            "donationInKg": 30,
-            "shelterId": 1
-          },
-          {
-            "date": "2015-11-03T03:47:27+00:00",
-            "donationInKg": 15,
-            "shelterId": 1
-          }
-        ]
-      ]
+      ""
     ],
-    "phoneNumber": "513-315-6789",
-    "email": "Hello123@gmail.com",
-    "_id": "k53z3s1wnvs",
-    "_createdDate": 1578843756796,
-    "_updatedDate": 1578843756796
+    "phoneNumber": "4023218727",
+    "email": "rthakker549@gmail.com",
+    "_id": "3y3llvgsfsu",
+    "_createdDate": 1578845543309,
+    "_updatedDate": 1578845543309
   }
 ]
