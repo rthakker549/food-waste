@@ -5,8 +5,30 @@ const googleMapsClient = require('@google/maps').createClient({
   });
 
 let destinationDistanceData = new Array();
+module.exports = function getDistancesBetweenRestaurantAndShelters(restaurant, allShelters, callback){
+    // address zipcode city state
+    let shelterLocations = new Array();
+    console.log(allShelters);
+    allShelters.forEach(element => {
+        let combinedAddress = "";
+        combinedAddress += element.address + " ";
+        combinedAddress += element.city + ",";
+        combinedAddress += element.state + " ";
+        combinedAddress += element.zipCode;
+        shelterLocations.push(combinedAddress);
+    })
 
-module.exports = async function (origin, destinations, callback){    
+    let restaurantString = "";
+    restaurantString += restaurant.address + " ";
+    restaurantString += restaurant.city + ",";
+    restaurantString += restaurant.state + " ";
+    restaurantString += restaurant.zipCode;
+    calculateDistance(restaurantString, shelterLocations, function(distances){
+        // process distances
+        callback(distances);
+    }); 
+}
+calculateDistance = async function (origin, destinations, callback){    
     //var service = new googleMapsClient.DistanceMatrixService();
     
      googleMapsClient.distanceMatrix(
@@ -39,14 +61,20 @@ function GetNeedPercentages(Offer){
     // Retrieve Shelters in Need
     let rest = bc.Restaurants.find({_id : Offer.restaurantId});
     let allRequests = bc.Request.findAll({});
+    if(allRequests.length === 0){
+        return false;
+    }
     let sheltersInNeed = allRequests.map(e => {
         bc.Shelters.find({_id : e.shelterId});
     });
+    let x = getDistancesBetweenRestaurantAndShelters(rest, sheltersInNeed, (arr) => {return arr;});
+    console.log(x);
+    let i = 0;
     sheltersInNeed = sheltersInNeed.filter(e =>{
-        if(/* Distance between e and rest > e.maxDistance return false*/false){
-            return false;
+        if(x[i] <= allRequests[i].maxDistance){
+            return true;
         }
-        return true;
+        return false;
     });
     if(sheltersInNeed.length <= 0){
         return false;
@@ -114,7 +142,10 @@ function GetMatchHelper(shelters, average, stdev){
 }
 
 function TopXMatches(Offer, x){
-    matches = GetNeedPercentages();
+    matches = GetNeedPercentages(Offer);
+    if(matches === false){
+        return [];
+    }
     matches = matches.sort((e,f) =>{
         if(e.percentile > f.percentile) return 1;
         if(e.percentile < f.percentile) return  -1;
@@ -124,6 +155,7 @@ function TopXMatches(Offer, x){
     while(x > matches.length && matches.length > 0){
         needful.push(matches.pop());
     }
+    return needful;
 }
 
 function ProcessTransaction(Request, Offer){
