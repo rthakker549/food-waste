@@ -8,12 +8,31 @@
     "phoneNumber": "123-234-5678",
     "email": "yukonshelter@gmail.com",
     "foodServed": [
-      []
+      {
+        "peopleCount": 300,
+        "foodInKgsServed": 100,
+        "date": "2019-02-17T13:37:27+00:00"
+      },
+      {
+        "peopleCount": 500,
+        "foodInKgsServed": 300,
+        "date": "2020-01-10T10:37:57+00:00"
+      }
     ],
     "demographics": {},
     "transactionHistory": [
-      {}
+      {
+        "date": "2014-03-12T13:37:27+00:00",
+        "donationInKg": 20,
+        "shelterId": 1
+      },
+      {
+        "date": "2015-11-03T03:47:27+00:00",
+        "donationInKg": 15,
+        "shelterId": 1
+      }
     ],
+
     "_id": "tjfuj54mg7",
     "_createdDate": 1578854040041,
     "_updatedDate": 1578854040041

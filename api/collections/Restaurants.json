@@ -6,10 +6,30 @@
     "city": "Vancover",
     "name": "Thai Kitchen",
     "foodExcess": [
-      ""
+      [
+        {
+          "date": "2014-03-12T13:37:27+00:00",
+          "excessInKg": 30
+        },
+        {
+          "date": "2015-11-11T12:27:27+00:00",
+          "excessInKg": 100
+        }
+      ]
     ],
     "transactionHistory": [
-      ""
+      [
+        {
+          "date": "2014-03-12T13:37:27+00:00",
+          "donationInKg": 30,
+          "shelterId": 1
+        },
+        {
+          "date": "2015-11-03T03:47:27+00:00",
+          "donationInKg": 15,
+          "shelterId": 1
+        }
+      ]
     ],
     "phoneNumber": "123-456-7890",
     "email": "thaikitchen@gmail.com",
