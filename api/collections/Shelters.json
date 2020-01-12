@@ -1,21 +1,76 @@
 [
   {
-    "address": "1407 N 134TH CIR",
-    "zipCode": "68154",
-    "state": "NE",
-    "city": "OMAHA",
-    "name": "Rohan Jayesh Thakker",
-    "phoneNumber": "4023218727",
-    "email": "rthakker549@gmail.com",
+    "address": "3305 Z Street",
+    "zipCode": "64510",
+    "state": "Kansas",
+    "city": "Lincoln",
+    "name": "Shelter Two",
+    "phoneNumber": "513-315-6789",
+    "email": "Hello123@gmail.com",
     "foodServed": [
-      []
+      {
+        "peopleCount": 300,
+        "foodInKgsServed": 100,
+        "date": "2019-02-17T13:37:27+00:00"
+      },
+      {
+        "peopleCount": 500,
+        "foodInKgsServed": 300,
+        "date": "2020-01-10T10:37:57+00:00"
+      }
     ],
     "demographics": {},
     "transactionHistory": [
-      {}
+      {
+        "date": "2014-03-12T13:37:27+00:00",
+        "donationInKg": 20,
+        "shelterId": 1
+      },
+      {
+        "date": "2015-11-03T03:47:27+00:00",
+        "donationInKg": 15,
+        "shelterId": 1
+      }
     ],
-    "_id": "pkf1q1limz",
-    "_createdDate": 1578845552038,
-    "_updatedDate": 1578845552038
+    "_id": "jfxqemj58n7",
+    "_createdDate": 1578857531753,
+    "_updatedDate": 1578857531753
+  },
+  {
+    "address": "200 S Avenue",
+    "zipCode": "20000",
+    "state": "Arkansas",
+    "city": "Lincoln",
+    "name": "Shelter Three",
+    "phoneNumber": "513-315-6789",
+    "email": "Hello123@gmail.com",
+    "foodServed": [
+      {
+        "peopleCount": 200,
+        "foodInKgsServed": 100,
+        "date": "2019-02-17T13:37:27+00:00"
+      },
+      {
+        "peopleCount": 1000,
+        "foodInKgsServed": 300,
+        "date": "2020-01-10T10:37:57+00:00"
+      }
+    ],
+    "demographics": {},
+    "transactionHistory": [
+      {
+        "date": "2015-03-12T13:37:27+00:00",
+        "donationInKg": 20,
+        "shelterId": 1
+      },
+      {
+        "date": "2015-11-03T03:47:27+00:00",
+        "donationInKg": 15,
+        "shelterId": 1
+      }
+    ],
+    "_id": "kozt85gl11f",
+    "_createdDate": 1578857618696,
+    "_updatedDate": 1578857618696
   }
 ]

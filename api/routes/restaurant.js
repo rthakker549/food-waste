@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 let bc = require('badcube');
 let getDistancesBetweenRestaurantAndShelters = require('./MatchingUtility.js');
-
+let TopXMatches = require('./MatchingUtility.js');
 module.exports = router;
 
 
@@ -127,4 +127,14 @@ router.post('/distances', function(req, res){
     });
 })
 
+router.post('/TopMatches', function(req, res){
+    let offer = {
+        restaurantId: req.body.restaurantId,
+        restaurantName: req.body.restaurantName,
+        foodQuantity: req.body.foodQuantity,
+    }
+    let x = req.body.count;
+    let mostNeedful = TopXMatches(offer, x);
+    res.send(mostNeedful);
+})
 module.exports = router;

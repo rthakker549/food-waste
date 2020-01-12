@@ -1,11 +1,10 @@
 [
   {
-    "restaurantId": "3abc",
-    "restaurantName": "McDonalds",
-    "foodQuantity": 45,
-    "preferredDeliveryMethod": true,
-    "_id": "bq3s74tv22",
-    "_createdDate": 1578797991398,
-    "_updatedDate": 1578797991398
+    "restaurantId": "4s5mxocme24",
+    "restaurantName": "MaiThai",
+    "foodQuantity": 300,
+    "_id": "n5odrae9v0a",
+    "_createdDate": 1578857725416,
+    "_updatedDate": 1578857725416
   }
 ]
