@@ -44,7 +44,6 @@ function AverageDonationsInTimePeriod(restaurant, days){
 // Routing
 
 router.post('/', function(req, res){
-  let id = req.body.id;
   let location = req.body.location;
   let name = req.body.name;
   let foodExcess = req.body.foodExcess;
@@ -52,8 +51,7 @@ router.post('/', function(req, res){
   let phoneNumber = req.body.phoneNumber;
   let email = req.body.email;
 
-  bc.restaurant.insert({
-      id: Number (id),
+  bc.Restaurants.insert({
       location: location,
       name: name,
       foodExcess: Array(foodExcess),

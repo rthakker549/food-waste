@@ -1,5 +1,4 @@
 module.exports = {
-    id : Number,
     location : String, 
     name : String,
     phoneNumber : String,
